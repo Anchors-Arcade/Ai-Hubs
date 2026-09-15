@@ -2,7 +2,7 @@
    Insert your own restricted, low-quota keys below. These keys are visible
    to anyone who can view this static GitHub Pages site; never use secret keys.
    Visitors are never shown an API-key settings screen. */
-const API_KEYS = { openai: "PUT_OPENAI_KEY_HERE", gemini: "PUT_GEMINI_KEY_HERE", anthropic: "PUT_ANTHROPIC_KEY_HERE" };
+const API_KEYS = { openai: "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", gemini: "AQ.Ab8RN6JSJnMHh2PuUwwe3oN744baVqOBwNPtTz5sEil5MmmNMQ", anthropic: "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" };
 
 const PROVIDERS = {
   openai: { name: "OpenAI", models: ["gpt-4o-mini", "gpt-4o"] },

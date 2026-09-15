@@ -15,8 +15,4 @@ There is no install, build command, backend, database, or user API-key screen. C
 
 ## Providers
 
-The owner can add or remove models in the `PROVIDERS` object in `app.js`. AI Hub includes adapters for OpenAI Chat Completions, Google Gemini `generateContent`, and Anthropic Messages APIs. Anthropic browser calls include Anthropic's required direct-browser access header.
-
-## If a chat cannot connect
-
-AI Hub now shows the provider name and actionable checks instead of only the browser's generic `Failed to fetch` error. Verify that the key was pasted exactly, the selected model is enabled for that key, and a browser extension, corporate network, or firewall is not blocking the provider request.
+The owner can add or remove models in the `PROVIDERS` object in `app.js`. AI Hub includes adapters for OpenAI Chat Completions, Google Gemini `generateContent`, and Anthropic Messages APIs.

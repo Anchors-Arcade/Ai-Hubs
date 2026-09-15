@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#10131f" />
+    <title>AI Hub — One place for every AI conversation</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-top">
+          <a class="brand" href="./" aria-label="AI Hub home"><span class="brand-mark">✦</span><span>AI Hub</span></a>
+          <button class="new-chat" id="newChatButton"><span>＋</span> New chat <kbd>⌘ K</kbd></button>
+          <label class="search-wrap"><span>⌕</span><input id="searchInput" type="search" placeholder="Search conversations" /></label>
+        </div>
+        <nav class="conversation-list" id="conversationList" aria-label="Conversations"></nav>
+        <div class="sidebar-bottom"><button class="settings-button" id="settingsButton"><span>⚙</span> Settings</button><p>AI Hub <span>v1.0.0</span></p></div>
+      </aside>
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+      <main class="chat-panel">
+        <header class="chat-header">
+          <button class="icon-button mobile-menu" id="menuButton" aria-label="Open menu">☰</button>
+          <div class="title-group"><h1 id="conversationTitle">New conversation</h1><button id="renameButton" class="text-button">Rename</button></div>
+          <div class="model-controls">
+            <select id="providerSelect" aria-label="AI provider"></select>
+            <select id="modelSelect" aria-label="AI model"></select>
+          </div>
+        </header>
+
+        <section class="chat-scroll" id="chatScroll" aria-live="polite">
+          <div class="empty-state" id="emptyState">
+            <div class="orb orb-one"></div><div class="orb orb-two"></div>
+            <div class="empty-icon">✦</div><p class="eyebrow">YOUR AI WORKSPACE</p><h2>What can I help you explore?</h2>
+            <p>Choose a model above and start a conversation. Your chats stay right here, on this device.</p>
+            <div class="prompt-grid">
+              <button data-prompt="Help me plan a productive week."><span>☼</span> Plan a productive week</button>
+              <button data-prompt="Explain a complex idea simply."><span>◌</span> Explain a complex idea</button>
+              <button data-prompt="Give me three creative project ideas."><span>✧</span> Brainstorm something new</button>
+              <button data-prompt="Help me write a polished email."><span>⌁</span> Draft a polished email</button>
+            </div>
+          </div>
+          <div class="messages" id="messages"></div>
+        </section>
+
+        <div class="composer-area">
+          <div class="generation-bar" id="generationBar" hidden><span class="pulse-dot"></span><span id="generationText">Thinking…</span><button id="stopButton">Stop generating</button></div>
+          <form class="composer" id="composer">
+            <textarea id="messageInput" rows="1" placeholder="Message AI Hub…" aria-label="Message"></textarea>
+            <button class="send-button" id="sendButton" type="submit" disabled aria-label="Send message">↑</button>
+          </form>
+          <p class="disclaimer">AI can make mistakes. Check important information.</p>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="settingsDialog" class="dialog"><form method="dialog" class="dialog-card"><header><div><p class="eyebrow">PREFERENCES</p><h2>Settings</h2></div><button class="close-button" value="cancel" aria-label="Close">×</button></header><section><h3>General</h3><label>Default provider<select id="defaultProvider"></select></label><label>Default model<select id="defaultModel"></select></label><label>Theme<select id="themeSelect"><option value="dark">Dark</option><option value="midnight">Midnight</option></select></label><button type="button" id="clearChatsButton" class="danger-button">Clear all conversations</button></section><section class="about"><h3>About AI Hub</h3><p><strong>AI Hub · v1.0.0</strong><br />A simple, private workspace for your AI conversations. Chats are saved locally in this browser.</p><p class="security-note">Your configured provider keys are embedded in this static site and can be viewed by visitors. Use restricted, low-quota keys only.</p></section></form></dialog>
+    <dialog id="renameDialog" class="dialog small-dialog"><form method="dialog" class="dialog-card"><header><div><p class="eyebrow">CONVERSATION</p><h2>Rename chat</h2></div><button class="close-button" value="cancel" aria-label="Close">×</button></header><label>Title<input id="renameInput" maxlength="80" /></label><div class="dialog-actions"><button value="cancel" class="secondary-button">Cancel</button><button id="saveRenameButton" value="default" class="primary-button">Save name</button></div></form></dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
